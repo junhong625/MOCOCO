@@ -6,6 +6,7 @@
 
 ## 모코코 참고 서적
 > **파이썬 알고리즘 인터뷰** [[Link]](https://book.interpark.com/product/BookDisplay.do?_method=detail&sc.prdNo=334277531&gclid=Cj0KCQjwm9yJBhDTARIsABKIcGYFUTpriF8AyZ7Ouek0V-6HxorSOiwYsBWYVIG3ylEQUkS1-3WGTF8aAt2HEALw_wcB)
+  
 ![](https://user-images.githubusercontent.com/83000975/180597267-bcb9d021-71c1-4469-a770-c42245d160c3.jpg)
 <br>
 
