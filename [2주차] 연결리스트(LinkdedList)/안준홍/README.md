@@ -16,3 +16,7 @@
 - [파이썬 알고리즘 인터뷰] 연결리스트 문제 풀기!!
     - 추가적으로 연결리스트 문제 풀기!!
 - 과목 평가 화이팅!!
+
+
+---
+참고 자료: https://velog.io/@woga1999/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9C%BC%EB%A1%9C-%EA%B5%AC%ED%98%84%ED%95%98%EB%8A%94-%EB%A7%81%ED%81%AC%EB%93%9C-%EB%A6%AC%EC%8A%A4%ED%8A%B8
