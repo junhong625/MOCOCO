@@ -10,3 +10,6 @@ class Solution(object):
         if list1 : #list1에 노드가 남아있다면, 다시 한 번 작은 밸류값의 노드 선정
             list1.next = self.mergeTwoLists(list1.next, list2)
         return list1
+
+
+        

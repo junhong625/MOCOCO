@@ -18,7 +18,6 @@ class Solution(object):
         while up or l1 or l2:
             
             temp = up
-            up = 0
             
             if l1 :
                 temp += l1.val
@@ -26,8 +25,11 @@ class Solution(object):
             if l2 :
                 temp += l2.val
                 l2 = l2.next
-            if temp >= 10 :
-                up += 1
+            
+            if temp >= 10 : #준홍갓갓
+                up = 1
+            else :
+                up = 0
             
             head.next = ListNode(temp % 10)
             head = head.next
