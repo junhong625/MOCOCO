@@ -7,7 +7,7 @@ class Solution(object):
         
         stack = []          # 스택쓰라니까 억지로 쓰는 스택배열
         alpha = [0] * 26    # ord('str') - ord('a') 해서 카운팅할 배열
-        fixed = set()       # 이미 자리고정된(혹은 될 예정인) 애들 모음
+        fixed = []       # 이미 자리고정된(혹은 될 예정인) 애들 모음
         
         for str in s :
             alpha[ord(str) - ord('a')] += 1 # 각 문자가 몇 개나 들어있는지 카운팅
@@ -26,6 +26,6 @@ class Solution(object):
             
             alpha[ord(str)- ord('a')] -= 1  # 카운팅에서 감소
             stack.append(str)               # 다음에 올 문자 붙이기
-            fixed.add(str)                  # 다음에 올 문자 고정
+            fixed.append(str)               # 다음에 올 문자 고정
             
-        return (''.join(stack))             # 아 쁘린뜨~
+        return (''.join(stack))             # 아 쁘린뜨~  26ms 13.7mb
