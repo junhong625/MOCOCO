@@ -1,29 +1,29 @@
 class MyQueue(object):
 
     def __init__(self):
-        self.q_push = []    # 넣을 때 쓸 놈
-        self.q_pop = []     # 뺄 때 쓸 놈
+        self.self_que_push = []    # 넣을 때 쓸 놈
+        self.self_que_pop = []     # 뺄 때 쓸 놈
 
     def push(self, x):
         """
         :type x: int
         :rtype: None
         """
-        self.q_push.append(x) # 넣을 때 쓸 놈에다가
+        self.self_que_push.append(x) # 넣을 때 쓸 놈에다가
 
     def pop(self):
         """
         :rtype: int
         """
-        while self.q_push :
-            self.q_pop.append(self.q_push.pop()) 
+        while self.self_que_push :
+            self.self_que_pop.append(self.self_que_push.pop()) 
             # 넣을때 쓸 놈에서 뺄 때 쓸 놈으로 pop해서 옮기기
             # 그러면 위상이 뒤집힌다
 
-        self_pop =  self.q_pop.pop() # stack[-1]값 pop
+        self_pop =  self.self_que_pop.pop() # stack[-1]값 pop
         
-        while self.q_pop :
-            self.q_push.append(self.q_pop.pop())
+        while self.self_que_pop :
+            self.self_que_push.append(self.self_que_pop.pop())
             # 다음 명령이 무엇일지 모르므로 초기화
         
         return self_pop # 출력
@@ -33,13 +33,13 @@ class MyQueue(object):
         """
         :rtype: int
         """
-        while self.q_push :
-            self.q_pop.append(self.q_push.pop())
+        while self.self_que_push :
+            self.self_que_pop.append(self.self_que_push.pop())
         
-        self_peek = self.q_pop[-1]
+        self_peek = self.self_que_pop[-1]
         
-        while self.q_pop :
-            self.q_push.append(self.q_pop.pop())
+        while self.self_que_pop :
+            self.self_que_push.append(self.q_pop.pop())
             
         return self_peek
 
@@ -50,7 +50,7 @@ class MyQueue(object):
         :rtype: bool
         """
         
-        return not self.q_push and not self.q_pop
+        return not self.self_que_push and not self.self_que_pop
 
 
 # Your MyQueue object will be instantiated and called as such:
