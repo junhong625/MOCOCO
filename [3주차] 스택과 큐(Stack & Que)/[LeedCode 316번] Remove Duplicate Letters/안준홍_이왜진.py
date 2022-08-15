@@ -6,9 +6,9 @@ class Solution(object):
         :rtype: str
         """
         chars = deque(sorted(set(s))) # 중복 제거 후 정렬, 속도를 조금이나마 높이기 위해 deque 사용
-        duplicated_word = '' # s의 집합과 접미사 집합이 일치할 경우 접미사를 더해갈 변수
+        duplicated_word = '' # s의 집합과 접두사 집합이 일치할 경우 접두사를 더해갈 변수
         
-        # 접미사 집합에 해당하는 문자들을 우선적으로 걸러내기 위한 반복문
+        # 접두사 집합에 해당하는 문자들을 우선적으로 걸러내기 위한 반복문
         while chars: 
             if set(s) == set(s[s.index(chars[0]):]): # 문자열 s와 chars에서 꺼낸 문자를 기준으로 잘라 만든 두 집합이 같을 경우 -> 해당 문자가 문자열 s의 제일 앞이라는 의미
                 s = s[s.index(chars[0]):].replace(chars[0],'') # 위 조건에 충족할 경우 해당 s에서 해당 문자와 같은 문자들 모두 제거한 후 s에 저장
