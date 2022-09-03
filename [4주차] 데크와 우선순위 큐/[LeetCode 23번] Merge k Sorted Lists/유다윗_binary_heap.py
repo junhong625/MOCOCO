@@ -2,7 +2,6 @@ class ListNode:
     def __init__(self, val=0, next=None):           
         self.val = val
         self.next = next
-        self.duplicate = 0
 
 class BinaryHeap:                                               # 이진 힙 클래스
     def __init__(self):                                         # 생성자 메서드
@@ -33,7 +32,7 @@ class BinaryHeap:                                               # 이진 힙 클
                         node.next = new_node                
                         break
 
-                    
+
    
 ## test ##
 if __name__ == '__main__':

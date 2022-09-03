@@ -122,7 +122,6 @@ if __name__ == '__main__':                              # 테스트
     d.insertFront(7)        # [7 1 4 5]
     d.insertFront(8)        # [8 7 1 4 5] 
     print(d.isFull())       # True
-
         
         
 

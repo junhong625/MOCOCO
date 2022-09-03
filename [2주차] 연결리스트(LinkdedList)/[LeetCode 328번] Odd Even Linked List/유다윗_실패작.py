@@ -26,9 +26,7 @@ class Solution:
         even = head.next
         even_head = head.next
 
-        odd = fn(odd)
-        even = fn(even)
-        # return even -> [2, 3, 5]
+        odd, even = fn(odd), fn(even)
         odd.next = even_head
 
         return head

@@ -10,7 +10,6 @@ class Solution:
         if not(list1 or list2):
             return None
         
-        
         ## val값만 추출해서 두 리스트 합치기 ##
         node_vals = []
         # list1
@@ -53,6 +52,6 @@ class Solution:
                 if idx == len(node_vals):
                     break
                     
-            node = head
+            # node = head
             return node
 

@@ -49,7 +49,7 @@ class Solution:
                         node = node.next
                         # sum_result가 10 이상이고, sum_result의 일의자리수와 자리올림 수 1을 더했을 때 
                         # 또 다시 자리올림 수가 발생했기 때문에 carry_save에 2 할당
-                        carry_save = 2
+                        carry_save = 2 # -> 수정!!!
                 # 자리올림 수가 존재하지 않을 경우
                 else:
                     node.next = ListNode(sum_result - 10)
@@ -72,6 +72,5 @@ class Solution:
                 
             # sum_result 초기화
             sum_result = 0
-        
-        node = head.next
-        return node
+    
+        return head.next
