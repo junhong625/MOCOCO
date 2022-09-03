@@ -4,7 +4,7 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        Hash = [0]
+        Hash = [0] # 빈 데이터가 들어왔을 때 0을 반환하기 위해 먼저 0을 집어넣어둠
         chars = ''
         for char in s: # 문자열 순회
             if not chars or char not in chars:  # chars에 문자가 없거나 chars에 포함되지 않는 문자일 경우
