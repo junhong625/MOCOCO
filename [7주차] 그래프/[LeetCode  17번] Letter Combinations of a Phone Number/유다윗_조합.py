@@ -18,7 +18,7 @@ letters_dict = {
 
                                                         ## 2. 조합 구하는 함수 정의 ##
 def combination(target):
-    result = []
+    result = [] 
     combination_list = list(product(*target))           # 모든 조합 구하기
     for c in combination_list:
         result.append(''.join(c))                       # 각 케이스들을 문자열로 바꾸기
@@ -39,5 +39,5 @@ def letterCombinations(digits: str):
 
 
 if __name__ == '__main__':                              # test
-    digits = '2'
+    digits = '23'
     print(letterCombinations(digits))
