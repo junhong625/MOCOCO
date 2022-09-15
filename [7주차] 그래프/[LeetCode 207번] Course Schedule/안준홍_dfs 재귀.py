@@ -7,6 +7,10 @@ class Solution(object):
         """
         from collections import defaultdict
         
+        ## 풀이법
+        # 문제에서 prerequisites[[0, 1]] 이런식으로 주어졌을 때 1을 먼저 방문해야 0을 방문할 수 있다고 조건을 제시했는데 이를 반대로 생각하면
+        # 0을 갈 수 있다면 1도 갈수 있다고 가정하여 코스의 끝부터 역순으로 진행해도 되지 않을까 생각하여 풀이해봤습니다. 
+
         def dfs(idx):                   # dfs 재귀
             if visited[idx] == -1:      # 현재 진행 중인 dfs탐색에서 방문했던 idx에 또 방문했다는 것은 불가능한 코스라는 의미기에 False를 반환
                 return False
