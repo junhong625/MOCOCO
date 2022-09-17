@@ -26,5 +26,3 @@ class Solution(object):
                                         if visited[s[0] + d[i][0]][s[1] + d[i][1]] == 0:
                                             stack.append((s[0] + d[i][0], s[1] + d[i][1]))
         return union
-                                    
-                            

@@ -16,8 +16,8 @@ class Solution(object):
                 n.extend(num_l[:i])
                 n.extend(num_l[i + 1:])
                 chk_l.append(temp)
-                print(n, chk_l)
-                dfs(n[:], chk_l[:])
+                #print(n, chk_l)
+                dfs(num_l[:i] + num_l[i + 1:], chk_l + [temp])
                 
         res = []
         chk = []
