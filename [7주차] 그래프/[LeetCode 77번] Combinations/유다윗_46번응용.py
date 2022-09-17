@@ -4,7 +4,7 @@ def combine(n: int, k: int):
 
     def dfs(start=1):
         if len(combination) == k:                 # 조합이 k개일 때 result에 조합 추가하고 함수 종료
-            result.append(combination[:])
+            result.append(combination)
             return
         
         else:
