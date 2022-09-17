@@ -15,5 +15,4 @@ for i in range(len(s)):
     
     if len(dq) > count:
         count = len(dq)
-    print(dq)
-    print(count)
+
