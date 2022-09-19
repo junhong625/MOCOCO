@@ -26,7 +26,8 @@ def findItinerary(tickets):
         route.append(v)                                     # 방문 시 route에 추가
         if v not in adj_list.keys() or adj_list[v] == []:   # 더 이상 목적지가 없는 경우,
             if ticket_nums+1 == len(route):                 # 티켓을 모두 소진했으면,
-                result.extend(route)                        # result에 route를 extend하고 종료
+                nonlocal result
+                result = route                       # result에 route를 extend하고 종료
                 return
         else:                                               # 아직 목적지가 남은 경우,
             for idx, i in enumerate(adj_list[v]):           # 목적지 순회
@@ -49,43 +50,43 @@ def findItinerary(tickets):
 ## break가 안 걸림
 ## input: [["EZE","TIA"],["EZE","HBA"],["AXA","TIA"],["JFK","AXA"],["ANU","JFK"],["ADL","ANU"],["TIA","AUA"],["ANU","AUA"],["ADL","EZE"],["ADL","EZE"],["EZE","ADL"],["AXA","EZE"],["AUA","AXA"],["JFK","AXA"],["AXA","AUA"],["AUA","ADL"],["ANU","EZE"],["TIA","ADL"],["EZE","ANU"],["AUA","ANU"]]
 ## output: ["JFK","AXA","AUA","ADL","ANU","AUA","ANU","EZE","ADL","EZE","ANU","JFK","AXA","EZE","TIA","ADL","EZE","AUA","AXA","TIA","ADL","EZE","TIA","ADL","EZE","TIA","AUA","AXA","EZE","AUA","AXA","EZE","TIA","ADL","EZE","TIA","ADL","EZE","ANU","JFK","AXA","EZE","TIA","AUA","AXA","EZE","AUA","AXA","EZE","ANU","JFK","AXA","TIA","ADL","EZE","TIA","ADL","EZE","ANU","JFK","AXA","EZE","EZE","ANU","JFK","AXA","EZE","TIA","ADL","EZE","AUA","AXA","TIA","ADL","EZE","TIA","ADL","EZE","TIA","AUA","AXA","EZE","AUA","AXA","EZE","TIA","ADL","EZE","TIA","ADL","EZE","ANU","JFK","AXA","EZE","TIA","AUA","AXA","EZE","AUA","AXA","EZE","ANU","JFK","AXA","TIA","ADL","EZE","TIA","ADL","EZE","ANU","JFK","AXA","EZE","ANU","JFK","AXA","EZE","ADL","EZE","TIA","ADL","EZE","AUA","AXA","TIA","ADL","EZE","EZE","TIA","ADL","EZE","AUA","AXA","TIA","ADL","EZE","TIA","ADL","EZE","ADL","EZE","EZE","ADL","EZE","AUA","AXA","TIA","ADL","EZE","ADL","EZE","EZE","ADL","EZE","TIA","ADL","EZE","ADL","EZE","TIA","AUA","AXA","EZE","TIA","AU...
-def findItinerary(tickets):
-    ## 1. 인접 리스트 만들기 ##
-    adj_list = {}
-    for t, f in tickets:
-        try:
-            adj_list[t].append(f)
-        except:
-            adj_list[t] = []
-            adj_list[t].append(f)
+# def findItinerary(tickets):
+#     ## 1. 인접 리스트 만들기 ##
+#     adj_list = {}
+#     for t, f in tickets:
+#         try:
+#             adj_list[t].append(f)
+#         except:
+#             adj_list[t] = []
+#             adj_list[t].append(f)
 
-    ticket_nums = len(tickets)
+#     ticket_nums = len(tickets)
 
-    ## 2. 인접 리스트의 원소 리스트 정렬하기 ##
-    for k in adj_list.keys():
-        adj_list[k].sort()
+#     ## 2. 인접 리스트의 원소 리스트 정렬하기 ##
+#     for k in adj_list.keys():
+#         adj_list[k].sort()
 
 
-    ## 3. dfs ##
-    def dfs(v):
-        route.append(v)
-        if v not in adj_list.keys() or adj_list[v] == []:
-            if ticket_nums+1 == len(route):
-                return
-            else:
-                route.pop()
-        else:
-            for idx, i in enumerate(adj_list[v]):
-                adj_list[v].remove(i)
-                dfs(i)
-                if len(route) == ticket_nums+1:
-                    break
-                adj_list[v].insert(idx, i)
+#     ## 3. dfs ##
+#     def dfs(v):
+#         route.append(v)
+#         if v not in adj_list.keys() or adj_list[v] == []:
+#             if ticket_nums+1 == len(route):
+#                 return
+#             else:
+#                 route.pop()
+#         else:
+#             for idx, i in enumerate(adj_list[v]):
+#                 adj_list[v].remove(i)
+#                 dfs(i)
+#                 if len(route) == ticket_nums+1:
+#                     break
+#                 adj_list[v].insert(idx, i)
 
-    route = []
-    dfs('JFK')
+#     route = []
+#     dfs('JFK')
 
-    return route
+#     return route
 
 
 if __name__ == '__main__':
