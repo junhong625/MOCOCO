@@ -39,9 +39,8 @@ class Solution(object):
 
         nodes = collections.defaultdict(list)  # 각 노드에 갈 수 있는 방향과 가중치 할당
         for unit in flights:
-            nodes[unit[0]].append([unit[1], unit[2]]) \
- \
-                    stack = [[src, 0, k + 1]]
+            nodes[unit[0]].append([unit[1], unit[2]]) 
+            stack = [[src, 0, k + 1]]
         visited = collections.defaultdict(list)  # 방문한 노드도 딕셔너리로 선언
         visited[src] = 0
         while stack:

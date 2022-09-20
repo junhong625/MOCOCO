@@ -30,10 +30,6 @@ class Solution(object):
             def dijs(x):
                 # 시작지점 거리값 0으로 지정 안함
                 distance[x] = 0
-                visited[x] = True
-                # 우선 다음 노드들간의 거리로 거리 값 지정
-                for i in graph[x]:
-                    distance[i[0]] = i[1]
             # n-1개의 노드 갯수 만큼 반복
                 for _ in range(n-1):
                     print(distance)
