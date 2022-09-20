@@ -2,7 +2,7 @@ from collections import defaultdict
 from collections import defaultdict
 import heapq
 
-####### 테스트케이스 37번까지 통과 #######
+####### 테스트케이스 47/51번까지 통과 #######
 
 def findCheapestPrice(n, flights, src, dst, k):
     # flights: [from, to, price]
@@ -13,7 +13,7 @@ def findCheapestPrice(n, flights, src, dst, k):
     for u, v, w in flights:                                 # 인접리스트 만들기
         graph[u].append((v, w))                             # (to, price)
     
-    if src not in graph.keys():
+    if src not in graph.keys():                             # src에서 출발하는 경우가 없으면 바로 -1 return
         return -1
 
     q = [(0, src, 0)]                                       # (시작점에서 정점까지 가격, 정점, 경유지 수-1)
@@ -21,15 +21,12 @@ def findCheapestPrice(n, flights, src, dst, k):
 
     while q:                                                # q순회
         price, node, stop = heapq.heappop(q)                # 최소값 추출
-        print(q, node)
 
         if stop == k+2:                                     # 허용된 경유지 수를 초과할 경우 continue
             continue
-        elif (node == src and stop != 0):                   # 다시 시작점으로 회귀할 경우 break
-            break
-
+            
         dist[node] = price
-        if node == dst:                                     # 목직지 도달 시 break
+        if node == dst:                                     # 목적지 도달 시 break
             break
 
         for v, w in graph[node]:
@@ -40,4 +37,5 @@ def findCheapestPrice(n, flights, src, dst, k):
 
 
 if __name__ == '__main__':
-    print(findCheapestPrice(4, [[0,3,59],[2,0,83],[2,3,32],[0,2,97],[3,1,16],[1,3,16]], src = 3, dst = 0, k = 3))
+    print(findCheapestPrice(7, [[0,3,7],[4,5,3],[6,4,8],[2,0,10],[6,5,6],[1,2,2],[2,5,9],[2,6,8],[3,6,3],[4,0,10],[4,6,8],[5,2,6],[1,4,3],[4,1,6],[0,5,10],[3,1,5],[4,3,1],[5,4,10],[0,1,6]],
+     src = 2, dst = 4, k = 1))
