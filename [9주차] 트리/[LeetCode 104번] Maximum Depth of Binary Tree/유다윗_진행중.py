@@ -29,7 +29,6 @@ def preorder(n, depth):
         if depth > max_depth:
             max_depth = depth
         return
-
         
 
 max_depth = 0
@@ -49,3 +48,4 @@ def maxDepth(root):
 
 if __name__ == '__main__':
     print(maxDepth([1,2,None,3,None,4,None,5]))
+    print()
