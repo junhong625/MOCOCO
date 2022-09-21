@@ -14,12 +14,14 @@ class Solution(object):
         for j in prerequisites:
             go[j[0]][j[1]] += 1
             requisite[j[1]][j[0]] += 1
+
         for i in range(numCourses):
             if sum(go[i]) == 1:
                 que.append(i)
         if not que:
             return False
         print(requisite)
+            
         while que:
             start = que.popleft()
             for i in requisite:
