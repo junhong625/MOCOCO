@@ -6,15 +6,15 @@ class Solution(object):
         :rtype: bool
         """
         
-        def dfs(s):
+        def dfs(s):                     
             if s in chk_cir:
-                return False
+                return False                        
             if s in visited:
                 return True
             
-            chk_cir.add(s)
-            for c in nodes[s]:
-                if not dfs(c):
+            chk_cir.add(s)              
+            for c in nodes[s]:          
+                if not dfs(c):          
                     return False
                 
             chk_cir.remove(s)

@@ -24,6 +24,8 @@ class Solution(object):
             visited[idx] = 1            # 이번 dfs탐색에서 코스가 원활히 진행됐다면 방문했던 곳들 모두 1로 변경하고
             return True                 # True 반환
         
+        #통합한 준홍 그저 갓갓
+
         adjList = defaultdict(list)     # defaultdict로 value의 기본형 list로 지정
         visited = [0 for _ in range(numCourses)] # 방문 기록
         for s, e in prerequisites:      # 인접 리스트에서 값 할당

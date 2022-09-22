@@ -1,17 +1,9 @@
 class Solution(object):
     def findCheapestPrice(self, n, flights, src, dst, k):
-        """
-        :type n: int
-        :type flights: List[List[int]]
-        :type src: int
-        :type dst: int
-        :type k: int
-        :rtype: int
-        """
         
         nodes = collections.defaultdict(list)               # 각 노드에 갈 수 있는 방향과 가중치 할당
         for unit in flights:
-            nodes[unit[0]].append([unit[1], unit[2]])\
+            nodes[unit[0]].append([unit[1], unit[2]])
 
         stack = [[src, 0, k + 1]]
         visited = collections.defaultdict(list)             # 방문한 노드도 딕셔너리로 선언
