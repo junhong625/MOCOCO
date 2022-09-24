@@ -33,7 +33,7 @@ def findCheapestPrice(n, flights, src, dst, k):
     for start, nxt, price in flights:
         graph[start][nxt] = price
 
-    # print(graph)
+    print(graph)
     
     prices = [inf] * n
     prices[src] = 0
@@ -51,7 +51,7 @@ def findCheapestPrice(n, flights, src, dst, k):
         q = next_q
         prices = next_prices
         k -=1
-    # print(prices)
+    print(prices)
     return -1 if prices[dst] == inf else prices[dst]
 
 print(findCheapestPrice(n, flights, src, dst, k))
