@@ -6,7 +6,7 @@ class Solution:
         # 후위순회
         # 왼쪽 서브트리 깊이 받기
         # 오른족 서브트리 깊이 받기
-        # 만약에 깊이가 1보다 크면 False
+        # 만약에 깊이 차이가 1보다 크면 False
 
         def postorder(n):
             if n:
