@@ -3,53 +3,65 @@
 from collections import defaultdict
 class Solution:
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
-        # 가장 많이 언급된 노드를 출발 노드로 지정
-        # 딕셔너리 만들기: key:n, value:빈도
-        # edges 순회하며 언급이 더 많이 된 노드를 출발로 놓기
-        # 루트를 바꿔가며 최소 높이를 가진 루트를 찾아내기(최소 높이보다 큰 높이가 나오면 break)
-
-        def preorder(n):
-            nonlocal ch
-            if n != -1:
-                if ch[n][0] == -1:
-                    return 0
-                max_h = 0
-                while ch[n]:
-                    h = preorder(ch[n][0])
-                    ch[n].pop(0)
-                    if h > max_h:
-                        max_h = h
-                return max_h+1
-            else:
-                return -1
-                
-        node_dict = defaultdict(int)
-        for edge in edges:
-            for e in edge:
-                node_dict[e] += 1
-        node_dict = dict(sorted(node_dict.items(), key=lambda x:x[1], reverse=True))
         
-        for idx, (i, j) in enumerate(edges):
-            if node_dict[i] < node_dict[j]:
-                edges[idx] = [j, i]
-        
-        min_height = n
-        node_keys = list(node_dict.keys())
-        result = []
-        for root in node_keys:
-            ch = [[-1] for _ in range(n)]
-
-            for i, j in edges:
-                if ch[i][0] == -1:
-                    ch[i][0] = j
+        def make_route(x_edges, root, new_edges):
+            if x_edges:
+                v = x_edges.pop(0)
+                if v[0] == root:
+                    new_edges.append(v)
+                    make_route(x_edges, root, new_edges)
+                elif v[1] == root:
+                    new_edges.append([v[1], v[0]])
+                    make_route(x_edges, root, new_edges)
                 else:
-                    ch[i].append(j)
-            # print(root, ch)
-            max_height = preorder(root)
-            print(root, max_height)
-            if max_height > min_height:
-                break
-            print(root, max_height)
-            min_height = max_height
-            result.append(root)
+                    new_edges.append(v)
+                    make_route(x_edges, root, new_edges)
+                    new_edges[-1] = [v[1], v[0]]
+                    make_route(x_edges, root, new_edges)
+            else:
+                new_edges_all.append(new_edges[:])
+        
+        
+        
+        def preorder(n, h, visited):
+            nonlocal min_height
+            nonlocal result
+            
+            visited[n] = 1
+            print(root, n, visited, h)
+            
+            if 0 in visited:
+                while ch_dict[n]:
+                    v = ch_dict[n].pop(0)
+                    preorder(v, h+1, visited)
+                else:
+                    visited[n] = 0
+
+            else:
+                if h:
+                    if min_height > h:
+                        min_height = h
+                        result = [root]
+                    elif min_height == h:
+                        result.append(root)
+                
+            
+
+        nodes = [i for i in range(n)]# 모든 노드를 담은 리스트
+
+        result = []
+        min_height = n
+        while nodes:
+            root = nodes.pop(0)
+            new_edges_all = []
+            temp_e = edges[:]
+            make_route(temp_e, root, [])
+            
+            for e in new_edges_all:
+                ch_dict = defaultdict(list)
+                for i in e:
+                    ch_dict[i[0]].append(i[1])
+                
+                preorder(root, 0, [0] * n)
+
         return result

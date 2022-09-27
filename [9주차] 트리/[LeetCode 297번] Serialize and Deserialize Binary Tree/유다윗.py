@@ -23,7 +23,7 @@ class Codec:
                 root_s += ' null'
                 
         return root_s.rstrip(' null')                   # 오른쪽에 붙은 ' null'은 모두 제거
-        
+
 
     def deserialize(self, data):
         if data == '':                                  # 빈 문자열을 받은 경우 return
