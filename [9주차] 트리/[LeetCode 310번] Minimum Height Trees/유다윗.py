@@ -1,5 +1,7 @@
 # 310. Minimum Height Trees
 
+##### 포기. ###
+
 from collections import defaultdict
 class Solution:
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
