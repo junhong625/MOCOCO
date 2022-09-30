@@ -22,30 +22,20 @@ class Solution:
                 new_edges_all.append(new_edges[:])
         
         
-        
-        def preorder(n, h, visited):
-            nonlocal min_height
-            nonlocal result
+        def postorder(node):
+            visited[node] = 1
+            print(ch_dict, root, node, visited, min_height)
+            max_h = 0
+            while ch_dict[node]:
+                # print(ch_dict[node])
+                v = ch_dict[node].pop(0)
+                left = postorder(v)
+                # print(left)
+                if max_h < left:
+                    max_h = left
             
-            visited[n] = 1
-            print(root, n, visited, h)
-            
-            if 0 in visited:
-                while ch_dict[n]:
-                    v = ch_dict[n].pop(0)
-                    preorder(v, h+1, visited)
-                else:
-                    visited[n] = 0
+            return max_h + 1
 
-            else:
-                if h:
-                    if min_height > h:
-                        min_height = h
-                        result = [root]
-                    elif min_height == h:
-                        result.append(root)
-                
-            
 
         nodes = [i for i in range(n)]# 모든 노드를 담은 리스트
 
@@ -62,6 +52,15 @@ class Solution:
                 for i in e:
                     ch_dict[i[0]].append(i[1])
                 
-                preorder(root, 0, [0] * n)
+                visited = [0] * n
+                visited[root] = 1
+                height = postorder(root)
+                # print(root, min_height, height)
+                
+                if 0 not in visited and height and min_height > height:
+                    min_height = height
+                    result = [root]
+                elif 0 not in visited and height and min_height == height:
+                    result.append(root)
 
         return result
