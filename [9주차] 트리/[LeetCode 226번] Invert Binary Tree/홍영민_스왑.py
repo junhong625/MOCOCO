@@ -15,7 +15,6 @@ class Solution(object):
     # 보다는 확실히 움직이는 데이터의 양이 적어질 거 같습니다.
     def invertTree1(self, root):
         if root:
-            root.left, root.right = \
-            self.invertTree(root.right), self.invertTree(root.left)
+            root.left, root.right = self.invertTree(root.right), self.invertTree(root.left)
             return root
         return None
