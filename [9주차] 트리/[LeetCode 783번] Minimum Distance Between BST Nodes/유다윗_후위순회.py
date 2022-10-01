@@ -14,7 +14,6 @@ class Solution:
     def minDiffInBST(self, root: Optional[TreeNode]) -> int:
         def postorder(n):
             nonlocal min_dist
-
             if n:
                 try:
                     left = list(postorder(n.left))

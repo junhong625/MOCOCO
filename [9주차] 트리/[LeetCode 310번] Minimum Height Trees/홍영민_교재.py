@@ -27,6 +27,7 @@ class Solution(object):
         for edge in edges:
             graph[edge[0]].append(edge[1])
             graph[edge[1]].append(edge[0])
+
         for i in range(n):
             self.height = 0
             visited = [0] * n
