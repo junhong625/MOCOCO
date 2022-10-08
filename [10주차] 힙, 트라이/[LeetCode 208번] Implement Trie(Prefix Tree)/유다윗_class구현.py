@@ -15,8 +15,10 @@ class Trie:
         
         trie = Trie.tries[word[0]][0]
         final = Trie.tries[word[0]][1]
+        p = -1
         for i in range(len(word)):              # 각 레벨마다 글자 추가
-            trie[i].add(word[i])
+            trie[i].add((word[i], p))
+            p = word[i]
         final.append([word[-1], len(word)-1])
 
     def search(self, word: str) -> bool:
@@ -24,9 +26,11 @@ class Trie:
             return False
         trie, final = Trie.tries[word[0]]
         
+        p = -1
         for i in range(len(word)):
-            if word[i] not in trie[i]:          # 글자가 없을 경우 False
+            if (word[i], p) not in trie[i]:          # 글자가 없을 경우 False
                 return False
+            p = word[i]
         if [word[-1], len(word)-1] in final:    # final에 끝나는 글자와 인덱스가 있을 경우 단어가 있으므로 True
             return True
         else:
@@ -37,8 +41,10 @@ class Trie:
             return False
         trie = Trie.tries[prefix[0]][0]
 
+        p = -1
         for i in range(len(prefix)):
-            if prefix[i] not in trie[i]:
+            if (prefix[i], p) not in trie[i]:
                 return False
+            p = prefix[i]
         else:
             return True                         # fianl은 따로 확인할 필요 없음
