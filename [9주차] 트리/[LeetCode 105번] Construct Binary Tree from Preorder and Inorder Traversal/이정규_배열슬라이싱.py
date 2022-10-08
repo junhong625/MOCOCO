@@ -13,14 +13,14 @@ class Solution(object):
         """
         if not inorder:
             return
-        
-        root = preorder.pop(0)
-        for n in range(len(inorder)):
-            if inorder[n] == root:
+                                                            
+        root = preorder.pop(0)                              
+        for n in range(len(inorder)):                       
+            if inorder[n] == root:                                
                 break
         
-        node = TreeNode(inorder[n])
-        node.left = self.buildTree(preorder, inorder[:n])
+        node = TreeNode(inorder[n])                         
+        node.left = self.buildTree(preorder, inorder[:n])   
         node.right = self.buildTree(preorder, inorder[n + 1:])
             
         return node
