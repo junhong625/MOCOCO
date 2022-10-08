@@ -15,6 +15,7 @@ for _ in range(n):
             cur.children[word[j]] = TrieNode()
         cur = cur.children[word[j]]
 result = 0
+
 for _ in range(m):
     cur = root
     not_in = True
