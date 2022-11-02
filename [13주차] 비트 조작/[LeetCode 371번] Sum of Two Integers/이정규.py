@@ -11,7 +11,7 @@ class Solution(object):
             carry = ((a&b)<<1) & mask
             a = sums
             b = carry
-            #print('mask')
+            print('mask')
             #print(bin(mask))
             #print('sums')
             #print(a, bin(a))
