@@ -3,8 +3,9 @@ def validUtf8(self, data):
             for i in range(start+1, start+size+1):
                 if i>= len(data) or (data[i] >> 6) != 0b10:
                     return False
-            return True 
-        start = 0
+            else:
+                return True                                     
+        start = 0                                       # data = [[11101011], [10001100], [00000001]]
         while start < len(data):
             first = data[start] 
             if (first >> 3) == 0b11110 and check(3):
