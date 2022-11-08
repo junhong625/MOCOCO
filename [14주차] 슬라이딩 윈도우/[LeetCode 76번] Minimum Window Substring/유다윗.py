@@ -14,11 +14,11 @@ class Solution:
         left = 0
         right = 0
         while right < len(s):
-            left_flag = False
+            left_flag = False                                       # 두 번째 while문을 순회할지 여부를 판단하는 boolean 변수
             while right < len(s):
                 if s[right] in target_keys:
                     target[s[right]] -= 1
-                    if len(list(filter(lambda x: x <= 0, list(target.values())))) == len(target):
+                    if len(list(filter(lambda x: x <= 0, list(target.values())))) == len(target):   # 필요한 letter가 구간에 다 포함됨
                         right += 1
                         left_flag = True
                         break
@@ -26,8 +26,8 @@ class Solution:
             while left_flag and left < len(s):
                 if s[left] in target_keys:
                     target[s[left]] += 1
-                    if target[s[left]] > 0:
-                        if len(result) > len(s[left:right]):
+                    if target[s[left]] > 0:                         # left의 letter가 빠지면 t가 구간에 포함되지 못함
+                        if len(result) > len(s[left:right]):        # result 업데이트
                             result = s[left:right]
                         left += 1
                         break
